@@ -19,7 +19,7 @@ type server struct {
 }
 func (s *server) SayHello(ctx context.Context, in *demMN.HelloRequest) (*demMN.HelloResponse, error) {
 	fmt.Printf("Main service is working...Received rpc from client, message=%s\n", in.GetName())
-	return &demMN.HelloResponse{Message: "Hello Main service is working...!!" }, nil
+	return &demMN.HelloResponse{Message: "Hello Main service is working...!!!" }, nil
 }
 func main(){
 
