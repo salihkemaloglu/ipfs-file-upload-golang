@@ -13,16 +13,27 @@ import (
 	"github.com/salihkemaloglu/DemMain-beta-001/proto"
 	"github.com/salihkemaloglu/DemMain-beta-001/middleware"
 	"github.com/salihkemaloglu/DemMain-beta-001/proxy"
+	"github.com/salihkemaloglu/DemMain-beta-001/ipfs"
+	"github.com/salihkemaloglu/DemMain-beta-001/rabbitmq"
 )
 
 type server struct {
 }
-func (s *server) SayHello(ctx context.Context, in *demMN.HelloRequest) (*demMN.HelloResponse, error) {
-	fmt.Printf("Main service is working...Received rpc from client, message=%s\n", in.GetName())
-	return &demMN.HelloResponse{Message: "Hello Main service is working....!!!" }, nil
-}
-func main(){
+func (s *server) SayHello(ctx context.Context, req *demMN.HelloRequest) (*demMN.HelloResponse, error) {
+	fmt.Printf("Main service is working...Received rpc from client, message=%s\n", req.GetName())
+	resultHash,err:=ipfs.UploadToIpfs([]byte(req.GetName()))
+	if err!=nil{
+		return nil,err
+	}
 
+	result,err:=rabbitmq.PublishDataToQueue(resultHash)
+	if err!=nil{
+		return nil,err
+	}
+	return &demMN.HelloResponse{Message: result+" :"+resultHash }, nil
+}
+
+func main(){
 	fmt.Println("Main Service Started")
 	opts := []grpc.ServerOption{}
 	grpcServer := grpc.NewServer(opts...)
