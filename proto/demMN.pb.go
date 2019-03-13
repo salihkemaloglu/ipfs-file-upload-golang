@@ -22,8 +22,182 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type File struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	UserId               string   `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	FolderId             string   `protobuf:"bytes,3,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
+	Name                 string   `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Description          string   `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+	CreatedDate          string   `protobuf:"bytes,6,opt,name=created_date,json=createdDate,proto3" json:"created_date,omitempty"`
+	UpdatedDate          string   `protobuf:"bytes,7,opt,name=updated_date,json=updatedDate,proto3" json:"updated_date,omitempty"`
+	FileHash             string   `protobuf:"bytes,8,opt,name=file_hash,json=fileHash,proto3" json:"file_hash,omitempty"`
+	IsBuried             bool     `protobuf:"varint,9,opt,name=is_buried,json=isBuried,proto3" json:"is_buried,omitempty"`
+	IsFolderFile         bool     `protobuf:"varint,10,opt,name=is_folder_file,json=isFolderFile,proto3" json:"is_folder_file,omitempty"`
+	IsStarred            bool     `protobuf:"varint,11,opt,name=is_starred,json=isStarred,proto3" json:"is_starred,omitempty"`
+	IsTrash              bool     `protobuf:"varint,12,opt,name=is_trash,json=isTrash,proto3" json:"is_trash,omitempty"`
+	IsDeleted            bool     `protobuf:"varint,13,opt,name=is_deleted,json=isDeleted,proto3" json:"is_deleted,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *File) Reset()         { *m = File{} }
+func (m *File) String() string { return proto.CompactTextString(m) }
+func (*File) ProtoMessage()    {}
+func (*File) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{0}
+}
+
+func (m *File) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_File.Unmarshal(m, b)
+}
+func (m *File) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_File.Marshal(b, m, deterministic)
+}
+func (m *File) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_File.Merge(m, src)
+}
+func (m *File) XXX_Size() int {
+	return xxx_messageInfo_File.Size(m)
+}
+func (m *File) XXX_DiscardUnknown() {
+	xxx_messageInfo_File.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_File proto.InternalMessageInfo
+
+func (m *File) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *File) GetUserId() string {
+	if m != nil {
+		return m.UserId
+	}
+	return ""
+}
+
+func (m *File) GetFolderId() string {
+	if m != nil {
+		return m.FolderId
+	}
+	return ""
+}
+
+func (m *File) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *File) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *File) GetCreatedDate() string {
+	if m != nil {
+		return m.CreatedDate
+	}
+	return ""
+}
+
+func (m *File) GetUpdatedDate() string {
+	if m != nil {
+		return m.UpdatedDate
+	}
+	return ""
+}
+
+func (m *File) GetFileHash() string {
+	if m != nil {
+		return m.FileHash
+	}
+	return ""
+}
+
+func (m *File) GetIsBuried() bool {
+	if m != nil {
+		return m.IsBuried
+	}
+	return false
+}
+
+func (m *File) GetIsFolderFile() bool {
+	if m != nil {
+		return m.IsFolderFile
+	}
+	return false
+}
+
+func (m *File) GetIsStarred() bool {
+	if m != nil {
+		return m.IsStarred
+	}
+	return false
+}
+
+func (m *File) GetIsTrash() bool {
+	if m != nil {
+		return m.IsTrash
+	}
+	return false
+}
+
+func (m *File) GetIsDeleted() bool {
+	if m != nil {
+		return m.IsDeleted
+	}
+	return false
+}
+
+type Chunk struct {
+	Content              []byte   `protobuf:"bytes,1,opt,name=Content,proto3" json:"Content,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Chunk) Reset()         { *m = Chunk{} }
+func (m *Chunk) String() string { return proto.CompactTextString(m) }
+func (*Chunk) ProtoMessage()    {}
+func (*Chunk) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{1}
+}
+
+func (m *Chunk) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Chunk.Unmarshal(m, b)
+}
+func (m *Chunk) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Chunk.Marshal(b, m, deterministic)
+}
+func (m *Chunk) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Chunk.Merge(m, src)
+}
+func (m *Chunk) XXX_Size() int {
+	return xxx_messageInfo_Chunk.Size(m)
+}
+func (m *Chunk) XXX_DiscardUnknown() {
+	xxx_messageInfo_Chunk.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Chunk proto.InternalMessageInfo
+
+func (m *Chunk) GetContent() []byte {
+	if m != nil {
+		return m.Content
+	}
+	return nil
+}
+
 type HelloRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -33,7 +207,7 @@ func (m *HelloRequest) Reset()         { *m = HelloRequest{} }
 func (m *HelloRequest) String() string { return proto.CompactTextString(m) }
 func (*HelloRequest) ProtoMessage()    {}
 func (*HelloRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f441c8bcd1aea887, []int{0}
+	return fileDescriptor_f441c8bcd1aea887, []int{2}
 }
 
 func (m *HelloRequest) XXX_Unmarshal(b []byte) error {
@@ -54,9 +228,9 @@ func (m *HelloRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_HelloRequest proto.InternalMessageInfo
 
-func (m *HelloRequest) GetName() string {
+func (m *HelloRequest) GetMessage() string {
 	if m != nil {
-		return m.Name
+		return m.Message
 	}
 	return ""
 }
@@ -72,7 +246,7 @@ func (m *HelloResponse) Reset()         { *m = HelloResponse{} }
 func (m *HelloResponse) String() string { return proto.CompactTextString(m) }
 func (*HelloResponse) ProtoMessage()    {}
 func (*HelloResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f441c8bcd1aea887, []int{1}
+	return fileDescriptor_f441c8bcd1aea887, []int{3}
 }
 
 func (m *HelloResponse) XXX_Unmarshal(b []byte) error {
@@ -100,25 +274,291 @@ func (m *HelloResponse) GetMessage() string {
 	return ""
 }
 
+type UploadFileRequest struct {
+	File                 *Chunk   `protobuf:"bytes,1,opt,name=file,proto3" json:"file,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UploadFileRequest) Reset()         { *m = UploadFileRequest{} }
+func (m *UploadFileRequest) String() string { return proto.CompactTextString(m) }
+func (*UploadFileRequest) ProtoMessage()    {}
+func (*UploadFileRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{4}
+}
+
+func (m *UploadFileRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UploadFileRequest.Unmarshal(m, b)
+}
+func (m *UploadFileRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UploadFileRequest.Marshal(b, m, deterministic)
+}
+func (m *UploadFileRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UploadFileRequest.Merge(m, src)
+}
+func (m *UploadFileRequest) XXX_Size() int {
+	return xxx_messageInfo_UploadFileRequest.Size(m)
+}
+func (m *UploadFileRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UploadFileRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UploadFileRequest proto.InternalMessageInfo
+
+func (m *UploadFileRequest) GetFile() *Chunk {
+	if m != nil {
+		return m.File
+	}
+	return nil
+}
+
+type UploadFileResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UploadFileResponse) Reset()         { *m = UploadFileResponse{} }
+func (m *UploadFileResponse) String() string { return proto.CompactTextString(m) }
+func (*UploadFileResponse) ProtoMessage()    {}
+func (*UploadFileResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{5}
+}
+
+func (m *UploadFileResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UploadFileResponse.Unmarshal(m, b)
+}
+func (m *UploadFileResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UploadFileResponse.Marshal(b, m, deterministic)
+}
+func (m *UploadFileResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UploadFileResponse.Merge(m, src)
+}
+func (m *UploadFileResponse) XXX_Size() int {
+	return xxx_messageInfo_UploadFileResponse.Size(m)
+}
+func (m *UploadFileResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UploadFileResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UploadFileResponse proto.InternalMessageInfo
+
+func (m *UploadFileResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type LongGreetRequest struct {
+	Greeting             *Chunk   `protobuf:"bytes,1,opt,name=greeting,proto3" json:"greeting,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *LongGreetRequest) Reset()         { *m = LongGreetRequest{} }
+func (m *LongGreetRequest) String() string { return proto.CompactTextString(m) }
+func (*LongGreetRequest) ProtoMessage()    {}
+func (*LongGreetRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{6}
+}
+
+func (m *LongGreetRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LongGreetRequest.Unmarshal(m, b)
+}
+func (m *LongGreetRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LongGreetRequest.Marshal(b, m, deterministic)
+}
+func (m *LongGreetRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LongGreetRequest.Merge(m, src)
+}
+func (m *LongGreetRequest) XXX_Size() int {
+	return xxx_messageInfo_LongGreetRequest.Size(m)
+}
+func (m *LongGreetRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_LongGreetRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LongGreetRequest proto.InternalMessageInfo
+
+func (m *LongGreetRequest) GetGreeting() *Chunk {
+	if m != nil {
+		return m.Greeting
+	}
+	return nil
+}
+
+type LongGreetResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *LongGreetResponse) Reset()         { *m = LongGreetResponse{} }
+func (m *LongGreetResponse) String() string { return proto.CompactTextString(m) }
+func (*LongGreetResponse) ProtoMessage()    {}
+func (*LongGreetResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{7}
+}
+
+func (m *LongGreetResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LongGreetResponse.Unmarshal(m, b)
+}
+func (m *LongGreetResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LongGreetResponse.Marshal(b, m, deterministic)
+}
+func (m *LongGreetResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LongGreetResponse.Merge(m, src)
+}
+func (m *LongGreetResponse) XXX_Size() int {
+	return xxx_messageInfo_LongGreetResponse.Size(m)
+}
+func (m *LongGreetResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_LongGreetResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LongGreetResponse proto.InternalMessageInfo
+
+func (m *LongGreetResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type InsertFileRequest struct {
+	File                 *File    `protobuf:"bytes,1,opt,name=file,proto3" json:"file,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InsertFileRequest) Reset()         { *m = InsertFileRequest{} }
+func (m *InsertFileRequest) String() string { return proto.CompactTextString(m) }
+func (*InsertFileRequest) ProtoMessage()    {}
+func (*InsertFileRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{8}
+}
+
+func (m *InsertFileRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InsertFileRequest.Unmarshal(m, b)
+}
+func (m *InsertFileRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InsertFileRequest.Marshal(b, m, deterministic)
+}
+func (m *InsertFileRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InsertFileRequest.Merge(m, src)
+}
+func (m *InsertFileRequest) XXX_Size() int {
+	return xxx_messageInfo_InsertFileRequest.Size(m)
+}
+func (m *InsertFileRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_InsertFileRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InsertFileRequest proto.InternalMessageInfo
+
+func (m *InsertFileRequest) GetFile() *File {
+	if m != nil {
+		return m.File
+	}
+	return nil
+}
+
+type InsertFileResponse struct {
+	File                 *File    `protobuf:"bytes,1,opt,name=file,proto3" json:"file,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InsertFileResponse) Reset()         { *m = InsertFileResponse{} }
+func (m *InsertFileResponse) String() string { return proto.CompactTextString(m) }
+func (*InsertFileResponse) ProtoMessage()    {}
+func (*InsertFileResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f441c8bcd1aea887, []int{9}
+}
+
+func (m *InsertFileResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InsertFileResponse.Unmarshal(m, b)
+}
+func (m *InsertFileResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InsertFileResponse.Marshal(b, m, deterministic)
+}
+func (m *InsertFileResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InsertFileResponse.Merge(m, src)
+}
+func (m *InsertFileResponse) XXX_Size() int {
+	return xxx_messageInfo_InsertFileResponse.Size(m)
+}
+func (m *InsertFileResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_InsertFileResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InsertFileResponse proto.InternalMessageInfo
+
+func (m *InsertFileResponse) GetFile() *File {
+	if m != nil {
+		return m.File
+	}
+	return nil
+}
+
 func init() {
+	proto.RegisterType((*File)(nil), "dem.File")
+	proto.RegisterType((*Chunk)(nil), "dem.Chunk")
 	proto.RegisterType((*HelloRequest)(nil), "dem.HelloRequest")
 	proto.RegisterType((*HelloResponse)(nil), "dem.HelloResponse")
+	proto.RegisterType((*UploadFileRequest)(nil), "dem.UploadFileRequest")
+	proto.RegisterType((*UploadFileResponse)(nil), "dem.UploadFileResponse")
+	proto.RegisterType((*LongGreetRequest)(nil), "dem.LongGreetRequest")
+	proto.RegisterType((*LongGreetResponse)(nil), "dem.LongGreetResponse")
+	proto.RegisterType((*InsertFileRequest)(nil), "dem.InsertFileRequest")
+	proto.RegisterType((*InsertFileResponse)(nil), "dem.InsertFileResponse")
 }
 
 func init() { proto.RegisterFile("proto/demMN.proto", fileDescriptor_f441c8bcd1aea887) }
 
 var fileDescriptor_f441c8bcd1aea887 = []byte{
-	// 153 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0x28, 0xca, 0x2f,
-	0xc9, 0xd7, 0x4f, 0x49, 0xcd, 0xf5, 0xf5, 0xd3, 0x03, 0xb3, 0x85, 0x98, 0x53, 0x52, 0x73, 0x95,
-	0x94, 0xb8, 0x78, 0x3c, 0x52, 0x73, 0x72, 0xf2, 0x83, 0x52, 0x0b, 0x4b, 0x53, 0x8b, 0x4b, 0x84,
-	0x84, 0xb8, 0x58, 0xf2, 0x12, 0x73, 0x53, 0x25, 0x18, 0x15, 0x18, 0x35, 0x38, 0x83, 0xc0, 0x6c,
-	0x25, 0x4d, 0x2e, 0x5e, 0xa8, 0x9a, 0xe2, 0x82, 0xfc, 0xbc, 0xe2, 0x54, 0x21, 0x09, 0x2e, 0xf6,
-	0xdc, 0xd4, 0xe2, 0xe2, 0xc4, 0x74, 0x98, 0x3a, 0x18, 0xd7, 0xc8, 0x9e, 0x8b, 0xcb, 0x25, 0x35,
-	0x37, 0x38, 0xb5, 0xa8, 0x2c, 0x33, 0x39, 0x55, 0xc8, 0x90, 0x8b, 0x23, 0x38, 0xb1, 0x12, 0xac,
-	0x57, 0x48, 0x50, 0x2f, 0x25, 0x35, 0x57, 0x0f, 0xd9, 0x2e, 0x29, 0x21, 0x64, 0x21, 0x88, 0xd1,
-	0x4e, 0xec, 0x51, 0xac, 0x60, 0x37, 0x26, 0xb1, 0x81, 0x1d, 0x69, 0x0c, 0x08, 0x00, 0x00, 0xff,
-	0xff, 0xfa, 0x59, 0x18, 0xcc, 0xb9, 0x00, 0x00, 0x00,
+	// 541 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x54, 0x4d, 0x6f, 0xd3, 0x40,
+	0x10, 0x6d, 0xbe, 0xed, 0x89, 0x5b, 0x91, 0x95, 0x48, 0x97, 0xa0, 0xa2, 0xd4, 0x42, 0x28, 0x08,
+	0x14, 0x20, 0xb9, 0x71, 0x00, 0xa9, 0x89, 0x4a, 0x23, 0x01, 0x87, 0x04, 0x2e, 0x5c, 0x2c, 0x37,
+	0x3b, 0x24, 0x2b, 0x1c, 0x3b, 0xec, 0xae, 0x91, 0x38, 0x72, 0xe2, 0x6f, 0xa3, 0x1d, 0x6f, 0x1a,
+	0xd3, 0xa0, 0x72, 0xf3, 0xbc, 0x79, 0x6f, 0xde, 0x7c, 0xc8, 0x0b, 0x9d, 0xad, 0xca, 0x4c, 0xf6,
+	0x42, 0xe0, 0xe6, 0xc3, 0xc7, 0x21, 0x7d, 0xb3, 0x9a, 0xc0, 0x4d, 0xf8, 0xab, 0x06, 0xf5, 0x4b,
+	0x99, 0x20, 0x3b, 0x81, 0xaa, 0x14, 0xbc, 0xd2, 0xaf, 0x0c, 0xfc, 0x79, 0x55, 0x0a, 0x76, 0x0a,
+	0xad, 0x5c, 0xa3, 0x8a, 0xa4, 0xe0, 0x55, 0x02, 0x9b, 0x36, 0x9c, 0x09, 0xf6, 0x10, 0xfc, 0xaf,
+	0x59, 0x22, 0x8a, 0x54, 0x8d, 0x52, 0x5e, 0x01, 0xcc, 0x04, 0x63, 0x50, 0x4f, 0xe3, 0x0d, 0xf2,
+	0x3a, 0xe1, 0xf4, 0xcd, 0xfa, 0xd0, 0x16, 0xa8, 0x97, 0x4a, 0x6e, 0x8d, 0xcc, 0x52, 0xde, 0xa0,
+	0x54, 0x19, 0x62, 0xe7, 0x10, 0x2c, 0x15, 0xc6, 0x06, 0x45, 0x24, 0x62, 0x83, 0xbc, 0x59, 0x50,
+	0x1c, 0x36, 0x8d, 0x0d, 0x5a, 0x4a, 0xbe, 0x15, 0x7b, 0x4a, 0xab, 0xa0, 0x38, 0x8c, 0x28, 0xb6,
+	0x31, 0x99, 0x60, 0xb4, 0x8e, 0xf5, 0x9a, 0x7b, 0xae, 0x31, 0x99, 0xe0, 0x55, 0xac, 0xd7, 0x36,
+	0x29, 0x75, 0x74, 0x9d, 0x2b, 0x89, 0x82, 0xfb, 0xfd, 0xca, 0xc0, 0x9b, 0x7b, 0x52, 0x5f, 0x50,
+	0xcc, 0x1e, 0xc3, 0x89, 0xd4, 0x91, 0x9b, 0xca, 0x4a, 0x38, 0x10, 0x23, 0x90, 0xfa, 0x92, 0x40,
+	0xda, 0xd0, 0x19, 0x80, 0xd4, 0x91, 0x36, 0xb1, 0x52, 0x28, 0x78, 0x9b, 0x18, 0xbe, 0xd4, 0x8b,
+	0x02, 0x60, 0x0f, 0xc0, 0x93, 0x3a, 0x32, 0xca, 0xba, 0x07, 0x94, 0x6c, 0x49, 0xfd, 0xc9, 0x86,
+	0x4e, 0x29, 0x30, 0x41, 0x83, 0x82, 0x1f, 0xef, 0x94, 0xd3, 0x02, 0x08, 0xcf, 0xa1, 0x31, 0x59,
+	0xe7, 0xe9, 0x37, 0xc6, 0xa1, 0x35, 0xc9, 0x52, 0x83, 0xa9, 0xa1, 0x43, 0x04, 0xf3, 0x5d, 0x18,
+	0x0e, 0x20, 0xb8, 0xc2, 0x24, 0xc9, 0xe6, 0xf8, 0x3d, 0x47, 0x6d, 0x2c, 0x73, 0x83, 0x5a, 0xc7,
+	0x2b, 0x74, 0x27, 0xdb, 0x85, 0xe1, 0x53, 0x38, 0x76, 0x4c, 0xbd, 0xcd, 0x52, 0x8d, 0x77, 0x50,
+	0xc7, 0xd0, 0xf9, 0xbc, 0x4d, 0xb2, 0x58, 0xd8, 0xf1, 0x76, 0x95, 0x1f, 0x41, 0x9d, 0x36, 0x60,
+	0xb9, 0xed, 0x11, 0x0c, 0x05, 0x6e, 0x86, 0xd4, 0xdd, 0x9c, 0xf0, 0xf0, 0x39, 0xb0, 0xb2, 0xc8,
+	0x99, 0x74, 0xa1, 0xa9, 0x50, 0xe7, 0x89, 0x71, 0x1e, 0x2e, 0x0a, 0x5f, 0xc3, 0xbd, 0xf7, 0x59,
+	0xba, 0x7a, 0xa7, 0x10, 0xcd, 0xce, 0xe1, 0x09, 0x78, 0x2b, 0x1b, 0xcb, 0x74, 0xf5, 0x0f, 0x97,
+	0x9b, 0x5c, 0xf8, 0x0c, 0x3a, 0x25, 0xed, 0x7f, 0x8c, 0x46, 0xd0, 0x99, 0xa5, 0x1a, 0x95, 0x29,
+	0xcf, 0x72, 0xf6, 0xd7, 0x2c, 0x3e, 0xb9, 0x50, 0xbe, 0x18, 0x65, 0x0c, 0xac, 0xac, 0x71, 0x0e,
+	0x77, 0x8b, 0x46, 0xbf, 0xab, 0x10, 0x4c, 0xed, 0x5f, 0xb4, 0x40, 0xf5, 0x43, 0x2e, 0x91, 0xbd,
+	0x02, 0x6f, 0x11, 0xff, 0xa4, 0x9d, 0xb3, 0x0e, 0xb1, 0xcb, 0x97, 0xea, 0xb1, 0x32, 0xe4, 0x2c,
+	0x26, 0x00, 0xfb, 0x1d, 0xb2, 0x2e, 0x31, 0x0e, 0x2e, 0xd1, 0x3b, 0x3d, 0xc0, 0x0b, 0x79, 0x78,
+	0x34, 0xa8, 0xbc, 0xac, 0xb0, 0xb7, 0x00, 0xfb, 0xee, 0x5d, 0x91, 0x83, 0x15, 0xb8, 0x22, 0x87,
+	0x63, 0x86, 0x47, 0xec, 0x0d, 0xf8, 0x37, 0xfb, 0x65, 0xf7, 0x89, 0x77, 0xfb, 0x56, 0xbd, 0xee,
+	0x6d, 0x78, 0xdf, 0xc2, 0x45, 0xeb, 0x4b, 0x83, 0x9e, 0x93, 0xeb, 0x26, 0xbd, 0x27, 0xe3, 0x3f,
+	0x01, 0x00, 0x00, 0xff, 0xff, 0xe5, 0x42, 0x4f, 0x6c, 0x64, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -129,66 +569,234 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// DemServiceClient is the client API for DemService service.
+// DemMNServiceClient is the client API for DemMNService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type DemServiceClient interface {
+type DemMNServiceClient interface {
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
+	// BiDi Streaming
+	UploadFile(ctx context.Context, opts ...grpc.CallOption) (DemMNService_UploadFileClient, error)
+	InsertFile(ctx context.Context, in *InsertFileRequest, opts ...grpc.CallOption) (*InsertFileResponse, error)
+	LongGreet(ctx context.Context, opts ...grpc.CallOption) (DemMNService_LongGreetClient, error)
 }
 
-type demServiceClient struct {
+type demMNServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewDemServiceClient(cc *grpc.ClientConn) DemServiceClient {
-	return &demServiceClient{cc}
+func NewDemMNServiceClient(cc *grpc.ClientConn) DemMNServiceClient {
+	return &demMNServiceClient{cc}
 }
 
-func (c *demServiceClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
+func (c *demMNServiceClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
 	out := new(HelloResponse)
-	err := c.cc.Invoke(ctx, "/dem.DemService/SayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/dem.DemMNService/SayHello", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DemServiceServer is the server API for DemService service.
-type DemServiceServer interface {
+func (c *demMNServiceClient) UploadFile(ctx context.Context, opts ...grpc.CallOption) (DemMNService_UploadFileClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_DemMNService_serviceDesc.Streams[0], "/dem.DemMNService/UploadFile", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &demMNServiceUploadFileClient{stream}
+	return x, nil
+}
+
+type DemMNService_UploadFileClient interface {
+	Send(*UploadFileRequest) error
+	Recv() (*UploadFileResponse, error)
+	grpc.ClientStream
+}
+
+type demMNServiceUploadFileClient struct {
+	grpc.ClientStream
+}
+
+func (x *demMNServiceUploadFileClient) Send(m *UploadFileRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *demMNServiceUploadFileClient) Recv() (*UploadFileResponse, error) {
+	m := new(UploadFileResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *demMNServiceClient) InsertFile(ctx context.Context, in *InsertFileRequest, opts ...grpc.CallOption) (*InsertFileResponse, error) {
+	out := new(InsertFileResponse)
+	err := c.cc.Invoke(ctx, "/dem.DemMNService/InsertFile", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *demMNServiceClient) LongGreet(ctx context.Context, opts ...grpc.CallOption) (DemMNService_LongGreetClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_DemMNService_serviceDesc.Streams[1], "/dem.DemMNService/LongGreet", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &demMNServiceLongGreetClient{stream}
+	return x, nil
+}
+
+type DemMNService_LongGreetClient interface {
+	Send(*LongGreetRequest) error
+	CloseAndRecv() (*LongGreetResponse, error)
+	grpc.ClientStream
+}
+
+type demMNServiceLongGreetClient struct {
+	grpc.ClientStream
+}
+
+func (x *demMNServiceLongGreetClient) Send(m *LongGreetRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *demMNServiceLongGreetClient) CloseAndRecv() (*LongGreetResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(LongGreetResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+// DemMNServiceServer is the server API for DemMNService service.
+type DemMNServiceServer interface {
 	SayHello(context.Context, *HelloRequest) (*HelloResponse, error)
+	// BiDi Streaming
+	UploadFile(DemMNService_UploadFileServer) error
+	InsertFile(context.Context, *InsertFileRequest) (*InsertFileResponse, error)
+	LongGreet(DemMNService_LongGreetServer) error
 }
 
-func RegisterDemServiceServer(s *grpc.Server, srv DemServiceServer) {
-	s.RegisterService(&_DemService_serviceDesc, srv)
+func RegisterDemMNServiceServer(s *grpc.Server, srv DemMNServiceServer) {
+	s.RegisterService(&_DemMNService_serviceDesc, srv)
 }
 
-func _DemService_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DemMNService_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HelloRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DemServiceServer).SayHello(ctx, in)
+		return srv.(DemMNServiceServer).SayHello(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/dem.DemService/SayHello",
+		FullMethod: "/dem.DemMNService/SayHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DemServiceServer).SayHello(ctx, req.(*HelloRequest))
+		return srv.(DemMNServiceServer).SayHello(ctx, req.(*HelloRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _DemService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "dem.DemService",
-	HandlerType: (*DemServiceServer)(nil),
+func _DemMNService_UploadFile_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(DemMNServiceServer).UploadFile(&demMNServiceUploadFileServer{stream})
+}
+
+type DemMNService_UploadFileServer interface {
+	Send(*UploadFileResponse) error
+	Recv() (*UploadFileRequest, error)
+	grpc.ServerStream
+}
+
+type demMNServiceUploadFileServer struct {
+	grpc.ServerStream
+}
+
+func (x *demMNServiceUploadFileServer) Send(m *UploadFileResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *demMNServiceUploadFileServer) Recv() (*UploadFileRequest, error) {
+	m := new(UploadFileRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func _DemMNService_InsertFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InsertFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DemMNServiceServer).InsertFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dem.DemMNService/InsertFile",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DemMNServiceServer).InsertFile(ctx, req.(*InsertFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DemMNService_LongGreet_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(DemMNServiceServer).LongGreet(&demMNServiceLongGreetServer{stream})
+}
+
+type DemMNService_LongGreetServer interface {
+	SendAndClose(*LongGreetResponse) error
+	Recv() (*LongGreetRequest, error)
+	grpc.ServerStream
+}
+
+type demMNServiceLongGreetServer struct {
+	grpc.ServerStream
+}
+
+func (x *demMNServiceLongGreetServer) SendAndClose(m *LongGreetResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *demMNServiceLongGreetServer) Recv() (*LongGreetRequest, error) {
+	m := new(LongGreetRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+var _DemMNService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "dem.DemMNService",
+	HandlerType: (*DemMNServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SayHello",
-			Handler:    _DemService_SayHello_Handler,
+			Handler:    _DemMNService_SayHello_Handler,
+		},
+		{
+			MethodName: "InsertFile",
+			Handler:    _DemMNService_InsertFile_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "UploadFile",
+			Handler:       _DemMNService_UploadFile_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "LongGreet",
+			Handler:       _DemMNService_LongGreet_Handler,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "proto/demMN.proto",
 }
