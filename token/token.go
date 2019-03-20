@@ -5,7 +5,7 @@ import (
 	"time"
 
 	jwt "github.com/dgrijalva/jwt-go"
-	db "github.com/salihkemaloglu/DemRR-beta-001/mongodb"
+	db "github.com/salihkemaloglu/gignox-main-beta-001/mongodb"
 )
 
 //CreateTokenEndpoint user token creation

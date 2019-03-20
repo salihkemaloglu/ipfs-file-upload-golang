@@ -1,33 +1,34 @@
 package main
 
 import (
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
-	"google.golang.org/grpc/metadata"
-	"bytes"
-	"log"
-	"fmt"
+
 	"io"
 	"os"
-	"path/filepath"
-	"net/http"
+	"log"
+	"fmt"
+	"bytes"
 	"context"
-	"github.com/go-chi/chi"
-	chiMiddleware "github.com/go-chi/chi/middleware"
+	"net/http"
+	"path/filepath"
 	"github.com/rs/cors"
+	"github.com/go-chi/chi"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"google.golang.org/grpc/grpclog"
+	"google.golang.org/grpc/metadata"
+	chiMiddleware "github.com/go-chi/chi/middleware"
 	"github.com/improbable-eng/grpc-web/go/grpcweb"
-	"github.com/salihkemaloglu/DemMain-beta-001/proto"
-	"github.com/salihkemaloglu/DemMain-beta-001/middleware"
-	"github.com/salihkemaloglu/DemMain-beta-001/proxy"
+	"github.com/salihkemaloglu/gignox-main-beta-001/proto"
+	"github.com/salihkemaloglu/gignox-main-beta-001/middleware"
+	"github.com/salihkemaloglu/gignox-main-beta-001/proxy"
 	// "github.com/salihkemaloglu/DemMain-beta-001/ipfs"
 	//"github.com/salihkemaloglu/DemMain-beta-001/rabbitmq"
 )
 
 type server struct {
 }
-func (s *server) SayHello(ctx context.Context, req *demMN.HelloRequest) (*demMN.HelloResponse, error) {
+func (s *server) SayHello(ctx context.Context, req *gigxMN.HelloRequest) (*gigxMN.HelloResponse, error) {
 	fmt.Printf("Main service is working...Received rpc from client, message=%s\n", req.GetMessage())
 	// resultHash,err:=ipfs.UploadToIpfs([]byte(req.GetName()))
 	// if err!=nil{
@@ -38,17 +39,17 @@ func (s *server) SayHello(ctx context.Context, req *demMN.HelloRequest) (*demMN.
 	// if err!=nil{
 	// 	return nil,err
 	// }
-	return &demMN.HelloResponse{Message: "Hello RR service is working..."}, nil
+	return &gigxMN.HelloResponse{Message: "Hello RR service is working..."}, nil
 }
 
-func (*server) LongGreet(stream demMN.DemMNService_LongGreetServer) error {
+func (*server) LongGreet(stream gigxMN.GigxMNService_LongGreetServer) error {
 	fmt.Printf("LongGreet function was invoked with a streaming request\n")
 	result := ""
 	for {
 		req, err := stream.Recv()
 		if err == io.EOF {
 			// we have finished reading the client stream
-			return stream.SendAndClose(&demMN.LongGreetResponse{
+			return stream.SendAndClose(&gigxMN.LongGreetResponse{
 				Result: result,
 			})
 		}
@@ -75,7 +76,7 @@ func (*server) LongGreet(stream demMN.DemMNService_LongGreetServer) error {
 	}
 }
 
-func (*server) UploadFile(stream demMN.DemMNService_UploadFileServer) error {
+func (*server) UploadFile(stream gigxMN.GigxMNService_UploadFileServer) error {
 	fmt.Printf("GreetEveryone function was invoked with a streaming request\n")
 	headers, ok := metadata.FromIncomingContext(stream.Context())
 	if ok!=true{
@@ -109,7 +110,7 @@ func (*server) UploadFile(stream demMN.DemMNService_UploadFileServer) error {
 
 		result := "Hello "
 
-		sendErr := stream.Send(&demMN.UploadFileResponse{
+		sendErr := stream.Send(&gigxMN.UploadFileResponse{
 			Result: result,
 		})
 		if sendErr != nil {
@@ -119,14 +120,14 @@ func (*server) UploadFile(stream demMN.DemMNService_UploadFileServer) error {
 	}
 
 }
-func (s *server) InsertFile(ctx context.Context, req *demMN.InsertFileRequest) (*demMN.InsertFileResponse, error) {
+func (s *server) InsertFile(ctx context.Context, req *gigxMN.InsertFileRequest) (*gigxMN.InsertFileResponse, error) {
 	return nil,nil
 }
 func main(){
 	fmt.Println("Main Service Started")
 	opts := []grpc.ServerOption{}
 	grpcServer := grpc.NewServer(opts...)
-	demMN.RegisterDemMNServiceServer(grpcServer, &server{})
+	gigxMN.RegisterGigxMNServiceServer(grpcServer, &server{})
 
 	wrappedGrpc := grpcweb.WrapServer(grpcServer)
 

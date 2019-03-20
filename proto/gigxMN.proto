@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package dem;
+package gigx;
 
-option go_package = "demMN";
+option go_package = "gigxMN";
 
 message File {
     string id=1;
@@ -52,7 +52,7 @@ message InsertFileResponse {
     File file=1;
 }
 
-service DemMNService{
+service GigxMNService{
     rpc SayHello (HelloRequest) returns (HelloResponse);
     // BiDi Streaming
     rpc UploadFile (stream UploadFileRequest) returns (stream UploadFileResponse) {};
