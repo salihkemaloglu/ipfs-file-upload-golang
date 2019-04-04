@@ -17,7 +17,7 @@ RUN go get golang.org/x/crypto/acme/autocert
 ENV PATH /go/bin:$PATH
 
 # cd into the api code directory
-WORKDIR /go/src/github.com/salihkemaloglu/gignox-rr-beta-001
+WORKDIR /go/src/github.com/salihkemaloglu/gignox-main-beta-001
 
 # create ssh directory
 RUN mkdir ~/.ssh
